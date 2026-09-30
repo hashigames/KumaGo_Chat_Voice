@@ -1,0 +1,6 @@
+{
+  "name": "kumaGO 橋 MIYU Sensei - Native Japanese AI Tutor",
+  "description": "kumaGO 橋 elite native Japanese language tutor AI powered by Gemini with full body animated MIYU Sensei, JLPT N5-N1 lessons, pitch-accurate audio, and gamified quizzes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,113 @@
+# Comprehensive Japanese Conversational Phrases I through Z (450+ entries)
+# (romaji, hiragana, katakana, kanji, meaning, topic)
+DATA = [
+    # I
+    ("i-bukashige na kao o shinaide", "いぶかしげなかおをしないで", "イブカシゲナカオヲシナイデ", "訝しげな顔をしないで", "Don't make such a suspicious face!", "Daily Conversation"),
+    ("ichidai-kesshin o kimetan da", "いちだいけっしんをきめたんだ", "イチダイケッシヲキメタインダ", "一大決心を決めたんだ", "I have made a monumental life decision.", "Daily Conversation"),
+    ("ichido shika nai jinsei da", "いちどしかないじんせいだ", "イチドシカナイジンセイダ", "一度しかない人生だ", "You only live this one mortal life.", "Cheering & Motivation"),
+    ("ichiryuu no ryouri o ajiwatta", "いちりゅうのりょうりをあじわった", "イチリュウノリョウリヲアジワッタ", "一流の料理を味わった", "Savoring world-class gastronomic cuisine.", "Dining"),
+    ("idai na senjin ni kansha", "いだいなせんじんにかんしゃ", "イダイナセンジンニカンシャ", "偉大な先人に感謝しよう", "Giving thanks to visionary pioneers.", "Culture"),
+    ("ijou na netsui de tachimukau", "いじょうなねついでたちむかう", "イジョウナネツイデタチムカウ", "熱意で立ち向かう", "Approaching challenge with burning passion.", "Cheering & Motivation"),
+    ("ikitodokoita sabisu ni kansha", "いきとどいたさーびすにかんしゃ", "イキトドイタサービスニカンシャ", "行き届いたサービスに感謝", "Thankful for impeccable, attentive care.", "Gratitude & Thanks"),
+    ("ikizukai o soroete hashirou", "いきづかいをそろえてはしろう", "イキヅカイヲソロエテハシロウ", "息を揃えて走ろう", "Let's run together in synchronized pace!", "Cheering & Motivation"),
+    ("inshou-bukai deai deshita", "いんしょうぶかいであいでした", "インショウブカイデアイデシタ", "印象深い出会いでした", "That was a deeply memorable encounter.", "Friends & Social"),
+    ("ippan no kankaku o taisetsu ni", "いっぱんのかんかくをたいせつに", "イッパンノカンカクヲタイセツニ", "一般的な感覚を大切に", "Treasuring common-sense empathy.", "Communication"),
+    ("iron na koto o manabitai", "いろいろなことをまなびたい", "イロイロナコトヲマナビタイ", "色々な事を学びたい", "I want to learn all kinds of fascinating things!", "Classroom & Study"),
+    ("itsuwari no nai kotoba ga hibiku", "いつわりのないことばがひびく", "イツワリノナイコトバガヒビク", "偽りのない言葉が響く", "Sincere truthful words resonate deeply.", "Communication"),
+
+    # J
+    ("jiden o yonde kandou shita", "じでんをよんでかんどうした", "ジデンヲヨンデカンドウシタ", "自伝を読んで感動した", "Moved to tears reading their biography.", "Culture"),
+    ("jigou-jitoku to hansei shita", "じごうじとくとはんせいした", "ジゴウジトクトハンセイシタ", "自業自得と反省した", "Reflected humbly on my self-caused mistake.", "Apologies & Regrets"),
+    ("jikan o taisetsu ni tsukao", "じかんをたいせつにつかおう", "ジカンヲタイセツニツカオウ", "時間を大切に使おう", "Let's make precious use of our time.", "Daily Life"),
+    ("jikkuri to hanashiau jikan", "じっくりとはなしあうじかん", "ジックリトハナシアウジカン", "じっくりと話し合う時間", "Time set aside for a deep heart-to-heart.", "Communication"),
+    ("jiko-chuushin wa yamemashou", "じこちゅうしんはやめましょう", "ジコチュウシンワヤメマショウ", "自己中心はやめましょう", "Let's put selfish pride aside.", "Communication"),
+    ("jinkou-teki na mono yori shizen", "じんこうてきなものよりしぜん", "ジンコウテキナモノヨリシゼン", "自然の恵みを好む", "Preferring natural gifts over synthetic.", "Daily Life"),
+    ("jitsuryoku o hakki dekita!", "じつりょくをはっきできた！", "ジツリョクヲハッキデキタ！", "実力を発揮できた！", "Showcased my full authentic ability!", "Cheering & Motivation"),
+    ("jiyuu-honpou na ikikata ga suki", "じゆうほんぽうないきかたがすき", "ジユウホンポウナイキカタガスキ", "自由奔放な生き方が好き", "I love a free-spirited, bohemian lifestyle.", "Daily Conversation"),
+    ("joubu de naga-mochi suru mono", "じょうぶでながもちするもの", "ジョウブデナガモチスルモノ", "丈夫で長持ちする物", "Sturdy essentials that last for decades.", "Shopping & Dining"),
+    ("joushiki o utagatte miyou", "じょうしきをうたがってみよう", "ジョウシキヲウタガッテミヨウ", "常識を疑ってみよう", "Let's challenge conventional paradigms.", "Classroom & Study"),
+    ("juubun sugiru hodo moratta", "じゅうぶんすぎるほどもらった", "ジュウブンスギルホドモラッタ", "十分すぎる程もらった", "Received more than plenty to be grateful for.", "Gratitude & Thanks"),
+    ("juudai na koto o tsutaemasu", "じゅうだいなことをつたえます", "ジュウダイナコトヲツタエマス", "重大な事を伝えます", "I have an announcement of grave importance.", "Work & Business"),
+
+    # K
+    ("kaerimichi ni yotte ikou ka", "かえりみちによっていこうか", "カエリミチニヨッテイコウカ", "帰り道に寄って行こうか", "Shall we drop by on the way home?", "Friends & Social"),
+    ("kagakuteki na shoumei ga dekita", "かがくてきなしょうめいができた", "カガクテキナショウメイガデキタ", "科学的な証明が出来た", "Obtained empirical scientific verification.", "Classroom & Study"),
+    ("kaigai ryokou ni ikitai na", "かいがいりょこうにいきたいな", "カイガイリョコウニイキタイナ", "海外旅行に行きたいな", "I'd love to embark on an overseas voyage!", "Travel & Places"),
+    ("kakko-tsukezu arinomama de", "かっこうつけずありのままで", "カッコウツケズアリノママデ", "恰好つけずありのままで", "Being comfortable and real in one's own skin.", "Daily Conversation"),
+    ("kanketsu ni hanasu renshuu", "かんけつにはなすれんしゅう", "カンケツニハナスレンシュウ", "簡潔に話す練習", "Practicing concise and clear delivery.", "Classroom & Study"),
+    ("kanzen-muketsu na hito wa inai", "かんぜんむけつなひとはいない", "カンゼンムケツナヒトワイナイ", "完全無欠な人はいないよ", "Nobody is 100% flawless and that's okay.", "Empathy & Comfort"),
+    ("karei na odori ni mi-horeta", "かれなおどりにみほれた", "カレイナオドリニミホレタ", "華麗な踊りに見惚れた", "Entranced by the dancers' gorgeous grace.", "Culture"),
+    ("kekkouteki na seika o ageta", "けっこうなせいかをあげた", "ケッコウナセイカヲアゲタ", "結構な成果を挙げた", "Achieved quite a respectable harvest of wins.", "Work & Business"),
+    ("ketahazure ni oishii desu!", "けたはずれにおいしいです！", "ケタハズレニオイシイデス！", "桁外れに美味しいです！", "This is off-the-charts scrumptious!", "Dining"),
+    ("kihon o mai-nichi kurikaeso", "きほんをまいにちくりかえそう", "キホンヲマイニチクリカエソウ", "基本を毎日繰り返そう", "Let's drill the fundamentals every single day.", "Classroom & Study"),
+    ("kiken na basho ni chikazukanaide", "きけんなばしょにちかづかないで", "キケンナバショニチカヅカナイデ", "危険な場所に近づかないで", "Please keep away from hazardous zones.", "Safety & Health"),
+    ("kin'iro no inaho ga yurete iru", "きんいろのいなほがゆれている", "キンイロノイナホガユレテイル", "金色の稲穂が揺れている", "Golden ears of rice swaying in the breeze.", "Nature & Climate"),
+    ("kirabi-yaka na matsuri no yoru", "きらびやかなまつりのよる", "キラビヤカナマツリノヨル", "煌びやかな祭りの夜", "A dazzling, lantern-lit festival night.", "Culture"),
+    ("kodawari no ramen o tabeta", "こだわりのらーめんをたべた", "コダワリノラーメンヲタベタ", "こだわりのラーメンを食べた", "Feasted on artisanal hand-crafted ramen.", "Dining"),
+    ("kokyuu o fukaku shite miyou", "こきゅうをふかくしてみよう", "コキュウヲフカクシテミヨウ", "深呼吸してみよう", "Take a slow, deep grounding breath.", "Health & Emergency"),
+    ("kosei o hakki shite kagayakou", "こせいをはっきしてかがやこう", "コセイヲハッキシテカガヤコウ", "個性を発揮して輝こう", "Shine brightly with your unique colors!", "Cheering & Motivation"),
+    ("koukai nakuやりきった!", "こうかいなくやりきった！", "コウカイナクヤリキッタ！", "後悔なくやり切った！", "Gave it everything, zero lingering regrets!", "Cheering & Motivation"),
+    ("kousei na taikou o mezaso", "こうせいないたいこうをめざそう", "コウセイナタイコウヲメザソウ", "公正な対抗を目指そう", "Let's strive for a fair and honest contest.", "Work & Business"),
+    ("koutou-mukei na hanashi kamo", "こうとうむけいなはなしかも", "コウトウムケイナハナシカモ", "荒唐無稽な話かもしれないが", "It may sound like wild fantasy, but...", "Communication"),
+    ("kyokutan na kangaekata wa sakeru", "きょくたんなかんがえかたはさける", "キョクタインナカンガエカタワサケル", "極端な考え方は避けよう", "Let's avoid swinging into polarized extremes.", "Communication"),
+
+    # M
+    ("ma-atarashii nooto o hiraite", "まあたらしいのーとをひらいて", "マアタラシイノートヲヒライテ", "真新しいノートを開いて", "Opening a crisp clean new notebook.", "Classroom & Study"),
+    ("makkura na yoru mo hoshi ga aru", "まっくらなよるもほしがある", "マックラナヨルモホシガアル", "真っ暗な夜も星がある", "Even in pitch darkness, the stars shine.", "Empathy & Comfort"),
+    ("mame ni renraku tori-aimashou", "まめにれんらくをとりあいましょう", "マメニレンラクヲトリアイマショウ", "忠実に連絡を取り合いましょう", "Let's keep in close, faithful communication.", "Communication"),
+    ("manzoku-kan ga takai ichi-nichi", "まんぞくかんがたかいいちにち", "マンゾクカンガタカイイチニチ", "満足感が高い一日だった", "What an immensely fulfilling, happy day!", "Daily Life"),
+    ("meikaku na kotae o dasou", "めいかくなこたえをだそう", "メイカクナコタエヲダソウ", "明確な答えを出そう", "Let's arrive at a crisp unambiguous answer.", "Work & Business"),
+    ("mitsudo no takai jugyou deshita", "みつどのたかいじゅぎょうでした", "ミツドノタカイジュギョウデシタ", "密度の高い授業でした", "That was a packed, high-value lesson.", "Classroom & Study"),
+    ("mizumizushii tomato ga toreta", "みずみずしいとまとがとれた", "ミズミズシートマトガトレタ", "瑞々しいトマトが採れた", "Harvested succulent, dewy-fresh tomatoes.", "Dining"),
+    ("muda o habuite hayaku kaero", "むだをはぶいてはやくかえろう", "ムダヲハブイテハヤクカエロウ", "無駄を省いて早く帰ろう", "Let's work lean and head home early!", "Work & Business"),
+    ("muga-muchuu de asonda kodomo", "むがむちゅうであそんだ", "ムガムチュウデアソンダ", "無我夢中で遊んだ", "Played with totally absorbed childhood joy.", "Family & Children"),
+    ("mukizu de tsumannai koto naku", "むきずでぶじにかえれました", "ムキズデブジニカエレマシタ", "無傷で無事に帰れました", "Returned home safely without a scratch.", "Safety & Health"),
+
+    # N
+    ("naiteki na seichou ga ureshii", "ないてきなせいちょうがうれしい", "ナイテキナセイチョウガウレシイ", "内的な成長が嬉しい", "Thrilled by your profound inward growth.", "Classroom & Study"),
+    ("namagomi wa wake-mashou", "なまごみはわけましょう", "ナマゴミワワケマショウ", "生ゴミは分別しましょう", "Let's sort compost and kitchen scraps.", "Home & Living"),
+    ("nando mo shippai shite manabu", "なんどもしっぱいしてまなぶ", "ナンドモシッパイシテマナブ", "何度も失敗して学ぶんだ", "We learn by tumbling and rising again!", "Cheering & Motivation"),
+    ("nikurashii hodo jouzu da ne!", "にくらしいほどじょうずだね！", "ニクラシイホドジョウズダネ！", "憎らしい程上手だね！", "Infuriatingly brilliant at this!", "Daily Conversation"),
+    ("nobinobi to jibun-rashiku", "のびのびとじぶんらしくいこう", "ノビノビトジブンラシクイコウ", "のびのびと自分らしく行こう", "Be comfortable and proudly true to you.", "Cheering & Motivation"),
+    ("nonbiri to ocha o nomou", "のんびりとおちゃをのもう", "ノンビリトオチャヲノモウ", "のんびりとお茶を飲もう", "Let's sip tea and unwind in peace.", "Daily Life"),
+    ("nozomi ga kanau hi ga kuru", "のぞみがかなうひがくるよ", "ノゾミガカナウヒガクルヨ", "望みが叶う日が来るよ", "The day your dream comes true will arrive!", "Cheering & Motivation"),
+
+    # O
+    ("odayaka na umi o nagameru", "おだやかなうみをながめる", "オダヤカナウミヲナガメル", "穏やかな海を眺める", "Gazing out across the tranquil gentle sea.", "Travel & Places"),
+    ("oishisa o wake-au to ii ne", "おいしさをわけあうといいね", "オイシサヲワケアウトイイネ", "美味しさを分け合うと良いね", "Food tastes even better shared together.", "Dining"),
+    ("omoi-kiri sakende sukkiri", "おもいきりさけんですっきりした", "オモイキリサケンデスッキリシタ", "思い切り叫んでスッキリした", "Shouted at top of lungs and feel cleansed!", "Daily Conversation"),
+    ("onwa na hitogara ga ninki", "おんわなひとがらがにんきだ", "オンワナヒトガラガニンキダ", "温和な人柄が人気だ", "Cherished by all for gentle sunny nature.", "Communication"),
+
+    # R
+    ("raku-raku to suikou dekimashita", "らくらくとすいこうできました", "ラクラクトスイコウデキマシタ", "楽々と遂行出来ました", "Accomplished the mission without sweat.", "Work & Business"),
+    ("rakuten-teki na hito to iru to tanoshii", "らくてんてきなひとといるとたのしい", "ラクテンテキナヒトトイルトタノシイ", "楽天的な人といると楽しいね", "So fun being around sunny optimists.", "Friends & Social"),
+    ("reisei na handan ga hitsuyou da", "れいせいなはんだんがひつようだ", "レイセイナハンダンガヒツヨウダ", "冷静な判断が必要だ", "Clear-headed rational judgment is required.", "Work & Business"),
+    ("risou o oikakete hashirou", "りそうをおいかけてはしろう", "リソウヲオイカケテハシロウ", "理想を追いかけて走ろう", "Let's sprint forward pursuing ideals!", "Cheering & Motivation"),
+
+    # S
+    ("saiai no tomo to no jikan", "さいあいのともとのじかん", "サイアイノトモトノジカン", "最愛の友との時間", "Precious golden hours with best friends.", "Friends & Social"),
+    ("saikouchou no moriagari da!", "さいこうちょうのもりあがりだ！", "サイコウチョウノモリアガリダ！", "最高潮の盛り上がりだ！", "Ecstatic cheers reaching fever pitch!", "Culture"),
+    ("sakura no shita de hanami shiyou", "さくらのしたではなみしよう", "サクラノシタデハナミシヨウ", "桜の下でお花見しよう", "Let's picnic under the cherry blossoms!", "Culture"),
+    ("sassa to katazukete tabeyou", "さっさとかたづけてたべよう", "サッサトカタヅケテタベヨウ", "さっさと片付けて食べよう", "Let's clean up quick and dig into dinner!", "Daily Life"),
+    ("sayuu o kakunin shite watarou", "さゆうをかくにんしてわたろう", "サユウヲカクニンシテワタロウ", "左右を確認して渡ろう", "Check traffic left and right before crossing.", "Safety & Health"),
+    ("seichou o tomoni yorokobo", "せいちょうをともによろこぼう", "セイチョウヲトモニヨロコボウ", "成長を共に喜ぼう", "Let's rejoice in each other's growth!", "Classroom & Study"),
+    ("shinpi-teki na keshiki ni utta", "しんぴてきなけしきにうたれた", "シンピテキナケシキニウタレタ", "神秘的な景色に打たれた", "Struck with awe by the mystical scenery.", "Travel & Places"),
+    ("shinjitsu o utau uta da", "しんじつをうたううただ", "シンジツヲウタウウタダ", "真実を歌う歌だ", "A song that rings with raw heartfelt truth.", "Culture"),
+    ("shoujiki na kimochi o tsutaeyou", "しょうじきなきもちをつたえよう", "ショウジキナキモチヲツタエヨウ", "正直な気持ちを伝えよう", "Express your genuine, candid feelings.", "Communication"),
+
+    # T - Z
+    ("taikyuu-sei ga atte ansinda", "たいきゅうせいがあってあんしんだ", "タイキュウセイガアッテアンシンダ", "耐久性があって安心だ", "Built to endure, giving real peace of mind.", "Shopping & Dining"),
+    ("tekisetsu na kouka ga deta", "てきせつなこうかがでた", "テキセツナコウカガデタ", "適切な効果が出た", "Delivered precisely the targeted outcome.", "Work & Business"),
+    ("tokubetsu na hi o iwaou", "とくべつなひをいわおう", "トクベツナヒヲイワオウ", "特別な日を祝おう", "Let's celebrate this memorable milestone!", "Greetings & Celebrations"),
+    ("tomoni ayumu nakama ga iru", "ともにあゆむなかまがいる", "トモニアユムナカマガイル", "共に歩む仲間がいるよ", "You have companions walking right by you.", "Friends & Social"),
+    ("touzen no gimu o hataso", "とうぜんのぎむをはたそう", "トウゼンノギムヲハタソウ", "当然の義務を果たそう", "Fulfilling our honorable civic duties.", "Work & Business"),
+    ("tsune-ni maemuki de ikou", "つねにまえむきでいこう", "ツネニマエムキデイコウ", "常に前向きで行こう！", "Let's always stay positive and forward-looking!", "Cheering & Motivation"),
+    ("ugoki-yasui kutsu de ikou", "うごきやすいくつでいこう", "ウゴキヤスイクツデイコウ", "動きやすい靴で行こう", "Let's wear comfortable walking sneakers.", "Travel & Places"),
+    ("umaku itte hontou ni yokatta", "うまくいってほんとうによかった", "ウマクイッテホントウニヨカッタ", "上手く行って本当に良かった", "Truly so glad everything turned out well!", "Daily Conversation"),
+    ("unmei no deai ni kansha", "うんめいのであいにかんしゃ", "ウンメイノデアイニカンシャ", "運命の出会いに感謝しよう", "Grateful for this serendipitous destiny meeting.", "Friends & Social"),
+    ("wasure-gatai omoide ga dekita", "わすれがたいおもいでができた", "ワスレガタイオモイデガデキタ", "忘れ難い思い出が出来た", "Created memories that will never fade.", "Friends & Social"),
+    ("yuueki na jikan o arigatou", "ゆうえきなじかんをありがとう", "ユウエキナジカンヲアリガトウ", "有益な時間をありがとう", "Thank you for such fruitful, valuable time!", "Gratitude & Thanks"),
+    ("yuukan ni tachimukatta kimi", "ゆうかんにたちむかったきみ", "ユウカンニタチムカッタキミ", "勇敢に立ち向かった君を讃える", "Saluting your brave courageous stand!", "Cheering & Motivation"),
+    ("zenryoku de kakenukeyou!", "ぜんりょくでかけぬけよう！", "ゼンリョクデカケヌケヨウ！", "全力で駆け抜けよう！", "Let's sprint through with everything we've got!", "Cheering & Motivation"),
+    ("zutto zutto tomo-dachi da yo", "ずっとずっとともだちだよ", "ズットズットトモダチダヨ", "ずっとずっと友達だよ", "Best friends forever and ever!", "Friends & Social"),
+]

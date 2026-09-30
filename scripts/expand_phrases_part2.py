@@ -1,0 +1,160 @@
+import json
+
+raw_phrases_2 = [
+    # E
+    ("e, hontou ni", "え、ほんとうに", "エ、ホントウニ", "え、本当に？", "Eh, really?!", "Daily Conversation"),
+    ("e, uso deshou", "え、うそでしょう", "エ、ウソデショウ", "え、嘘でしょう？", "No way, you're kidding right?", "Daily Conversation"),
+    ("eeto, chotto matte", "ええと、ちょっとまって", "エエト、チョットマッテ", "ええと、ちょっと待って", "Umm, wait a second", "Daily Conversation"),
+    ("eeto, nan dakke", "ええと、なんだっけ", "エエト、ナンダッケ", "ええと、何だっけ？", "Umm, what was it again?", "Daily Conversation"),
+    ("ehon o yonde kudasai", "えほんをよんでください", "エホンヲヨンデクダサイ", "絵本を読んでください", "Please read the picture book", "Family & Children"),
+    ("eiga o mi ni ikou", "えいがをみにいこう", "エイガヲミニイコウ", "映画を見に行こう", "Let's go see a movie!", "Friends & Social"),
+    ("eigakan wa dochira desu ka", "えいがかんわどちらですか", "エイガカンワドチラデスカ", "映画館はどちらですか", "Which direction is the cinema?", "Travel & Directions"),
+    ("eigo de ii desu ka", "えいごでいいですか", "エイゴデイイデスカ", "英語でいいですか", "Is English alright?", "Classroom & Study"),
+    ("eigo ga hanase masu ka", "えいごがはなせますか", "エイゴガハナセマスカ", "英語が話せますか", "Can you speak English?", "Classroom & Study"),
+    ("eigo no menyuu wa arimasu ka", "えいごのめにゅーわありますか", "エイゴノメニューワアリマスカ", "英語のメニューはありますか", "Do you have an English menu?", "Shopping & Dining"),
+    ("eki wa doko desu ka", "えきわどこですか", "エキワドコデスカ", "駅はどこですか", "Where is the train station?", "Travel & Directions"),
+    ("eki made aruite nanpun", "えきまであるいてなんぷん", "エキマデアルイテナンプン", "駅まで歩いて何分？", "How many minutes on foot to the station?", "Travel & Directions"),
+    ("ekimae de machiawaseyou", "えきまえでまちあわせよう", "エキマエデマチアワセヨウ", "駅前で待ち合わせよう", "Let's meet up in front of the station", "Friends & Social"),
+    ("enryo shinaide kudasai", "えんりょしないでください", "エンリョシナイデクダサイ", "遠慮しないでください", "Please don't hesitate / Make yourself at home", "Service & Hospitality"),
+    ("enpitsu o kashite kudasai", "えんぴつをかしてください", "エンピツヲカシテクダサイ", "鉛筆を貸してください", "Could you lend me a pencil?", "Classroom & Study"),
+
+    # F
+    ("fairu o okutte kudasai", "ふぁいるをおくってください", "ファイルヲオクッテクダサイ", "ファイルを送ってください", "Please send the file", "Work & Business"),
+    ("fuan ni naranaide", "ふあんにならないで", "フアンニナラナイデ", "不安にならないで", "Please don't be anxious / Don't worry", "Empathy & Comfort"),
+    ("fuben da to omoimasu", "ふべんだとおもいます", "フベンダトオモイマス", "不便だと思います", "I think that's rather inconvenient", "Daily Conversation"),
+    ("fujisan ga miemasu", "ふじさんがみえます", "フジサンガミエマス", "富士山が見えます", "Mount Fuji is visible from here!", "Travel & Directions"),
+    ("fukuro wa kekkou desu", "ふくろわけっこうです", "フクロワケッコウデス", "袋は結構です", "No plastic bag needed, thank you", "Shopping & Dining"),
+    ("fukuro ni irete kudasai", "ふくろにいれてください", "フクロニイレテクダサイ", "袋に入れてください", "Please put it in a bag", "Shopping & Dining"),
+    ("fukushuu o shimashou", "ふくしゅうをしましょう", "フクシュウヲシマショウ", "復習をしましょう", "Let's review what we learned", "Classroom & Study"),
+    ("fune ni norimashita", "ふねにのりました", "フネニノリマシタ", "船に乗りました", "I boarded the boat", "Travel & Directions"),
+    ("fushigi desu ne", "ふしぎですね", "フシギデスネ", "不思議ですね", "How wondrous and strange, isn't it?", "Daily Conversation"),
+    ("futari bun no seki", "ふたりぶんのせき", "フタリブンノセキ", "二人分の席", "Table for two, please", "Shopping & Dining"),
+    ("fuyu ga suki desu", "ふゆがすきです", "フユガスキデス", "冬が好きです", "I love the winter season", "Weather & Daily"),
+
+    # G
+    ("gaikoku kara kimashita", "がいこくからきました", "ガイコクカラキマシタ", "外国から来ました", "I came from overseas", "Daily Conversation"),
+    ("gakkou ni maniau", "がっこうにまにあう", "ガッコウニマニアウ", "学校に間に合う", "I'll make it to school on time", "Classroom & Study"),
+    ("gakkou ga tanoshii desu", "がっこうがたのしいです", "ガッコウガタノシイデス", "学校が楽しいです", "School is lots of fun", "Classroom & Study"),
+    ("gaman shimasu", "がまんします", "ガマンシマス", "我慢します", "I will be patient / endure it", "Daily Conversation"),
+    ("ganbatte kudasai", "がんばってください", "ガンバッテクダサイ", "頑張ってください", "Do your best! / Good luck!", "Cheering & Motivation"),
+    ("ganbarimashou", "がんばりましょう", "ガンバリマショウ", "頑張りましょう", "Let's give it our all!", "Cheering & Motivation"),
+    ("ganbarimasu", "がんばります", "ガンバリマス", "頑張ります", "I will do my very best!", "Cheering & Motivation"),
+    ("gasu o tomete", "がすをとめて", "ガスヲトメテ", "ガスを止めて", "Turn off the stove gas", "Daily Conversation"),
+    ("geijutsu teki desu ne", "げいじゅつてきですね", "ゲイジュツテキデスネ", "芸術的ですね", "That's quite artistic!", "Daily Conversation"),
+    ("genki desu ka", "げんきですか", "ゲンキデスカ", "元気ですか", "How are you? / Are you doing well?", "Greetings & Farewells"),
+    ("genki desu yo", "げんきですよ", "ゲンキデスヨ", "元気ですよ", "I'm doing great, thank you!", "Greetings & Farewells"),
+    ("genki o dashite", "げんきをだして", "ゲンキヲダシテ", "元気を出して", "Cheer up! / Keep your chin up!", "Empathy & Comfort"),
+    ("genkan de kutsu o nuide", "げんかんでくつをぬいで", "ゲンカンデクツヲヌイデ", "玄関で靴を脱いで", "Please take off shoes at the entryway", "Service & Hospitality"),
+    ("ginkou wa doko desu ka", "ぎんこうわどこですか", "ギンコウワドコデスカ", "銀行はどこですか", "Where is the bank?", "Travel & Directions"),
+    ("go-chuumon wa o-kimari desu ka", "ごちゅうもんわおきまりですか", "ゴチュウモンワオキマリデスカ", "ご注文はお決まりですか", "Have you decided on your order?", "Shopping & Dining"),
+    ("go-enzan kudasai", "ごえんりょなく", "ゴエンリョナク", "ご遠慮なく", "Please don't hesitate / feel free", "Service & Hospitality"),
+    ("go-issho ni ikaga desu ka", "ごいっしょにいかがですか", "ゴイッショニイカガデスカ", "ご一緒にいかがですか", "Would you like something along with this?", "Shopping & Dining"),
+    ("go-kasoku ni yoroshiku", "ごかぞくによろしく", "ゴカゾクニヨロシク", "ご家族によろしく", "Please give my warmest regards to your family", "Greetings & Farewells"),
+    ("go-kibun wa ikaga desu ka", "ごきぶんわいかがですか", "ゴキブンワイカガデスカ", "ご気分はいかがですか", "How are you feeling?", "Health & Emergency"),
+    ("go-kurousama deshita", "ごくろうさまでした", "ゴクロウサマデシタ", "ご苦労様でした", "Thank you for your hard labor", "Work & Business"),
+    ("go-meiwaku o okake shimashita", "ごめいわくをおかけしました", "ゴメイワクヲオカケシマシタ", "ご迷惑をおかけしました", "I am terribly sorry for causing trouble", "Apologies & Regrets"),
+    ("go-shoukai shimasu", "ごしょうかいします", "ゴショウカイシマス", "ご紹介します", "Allow me to introduce you", "Greetings & Farewells"),
+    ("go-shinsetsu ni arigatou", "ごしんせつにありがとう", "ゴシンセツニアリガトウ", "ご親切にありがとう", "Thank you for your warm kindness!", "Gratitude & Thanks"),
+    ("go-shinpai naku", "ごしんぱいなく", "ゴシンパイナク", "ご心配なく", "Please don't worry at all", "Empathy & Comfort"),
+    ("go-yukkuri douzo", "ごゆっくりどうぞ", "ゴユックリドウゾ", "ごゆっくりどうぞ", "Please take your time and relax", "Service & Hospitality"),
+    ("gochisousama deshita", "ごちそうさまでした", "ゴチソウサマデシタ", "ご馳走様でした", "Thank you for the delicious meal!", "Shopping & Dining"),
+    ("gomen kudasai", "ごめんください", "ゴメンクダサイ", "ごめんください", "Excuse me, is anyone home?", "Greetings & Farewells"),
+    ("gomen nasai", "ごめんなさい", "ゴメンナサイ", "ごめんなさい", "I am deeply sorry / Excuse me", "Apologies & Regrets"),
+    ("gomen ne", "ごめんね", "ゴメンネ", "ごめんね", "Sorry about that! (Casual)", "Apologies & Regrets"),
+    ("goukakushita yo", "ごうかくしたよ", "ゴウカクシタヨ", "合格したよ", "I passed the test!", "Classroom & Study"),
+    ("gyuunyuu o nomou", "ぎゅうにゅうをのもう", "ギュウニュウヲノモウ", "牛乳を飲もう", "Let's drink milk", "Shopping & Dining"),
+
+    # H
+    ("ha o migakimashou", "はをみがきましょう", "ハヲミガキマショウ", "歯を磨きましょう", "Let's brush our teeth", "Daily Conversation"),
+    ("hai, arigatou", "はい、ありがとう", "ハイ、アリガトウ", "はい、ありがとう", "Yes, thank you", "Gratitude & Thanks"),
+    ("hai, kashikomarimashita", "はい、かしこまりました", "ハイ、カシコマリマシタ", "はい、かしこまりました", "Certainly, right away! (Polite)", "Service & Hospitality"),
+    ("hai, sou desu", "はい、そうです", "ハイ、ソウデス", "はい、そうです", "Yes, that is correct", "Daily Conversation"),
+    ("hai, wakarimashita", "はい、わかりました", "ハイ、ワカリマシタ", "はい、分かりました", "Understood / Got it!", "Daily Conversation"),
+    ("haitatsu o onegai shimasu", "はいたつをおねがいします", "ハイタツヲオネガイシマス", "配達をお願いします", "I'd like to request delivery", "Shopping & Dining"),
+    ("hajimemashite", "はじめまして", "ハジメマシテ", "初めまして", "Nice to meet you for the first time", "Greetings & Farewells"),
+    ("hajimemashou", "はじめましょう", "ハジメマショウ", "始めましょう", "Let's get started!", "Classroom & Study"),
+    ("hajimete kimashita", "はじめてきました", "ハジメテキマシタ", "初めて来ました", "This is my first time visiting", "Travel & Directions"),
+    ("hakkiri itte kudasai", "はっきりいってください", "ハッキリイッテクダサイ", "はっきり言ってください", "Please speak clearly and plainly", "Classroom & Study"),
+    ("hanabi ga kirei desu", "はなびがきれいですね", "ハナビガキレイデスネ", "花火が綺麗ですね", "The fireworks are gorgeous, aren't they?", "Weather & Daily"),
+    ("hanashi ga arimasu", "はなしがあります", "ハナシガアリマス", "話があります", "I have something to talk to you about", "Daily Conversation"),
+    ("hanashi o kiite", "はなしをきいて", "ハナシヲキイテ", "話を聞いて", "Please hear me out", "Daily Conversation"),
+    ("hanataba o arigatou", "はなたばをありがとう", "ハナタバヲアリガトウ", "花束をありがとう", "Thank you for the lovely flowers!", "Gratitude & Thanks"),
+    ("harete yokatta desu", "はれてよかったです", "ハレテヨカッタデス", "晴れて良かったです", "I'm so glad the weather cleared up", "Weather & Daily"),
+    ("haru ga kimashita ne", "はるがきましましたね", "ハルガキマシタネ", "春が来ましたね", "Spring has finally arrived, hasn't it?", "Weather & Daily"),
+    ("hasami o kashite", "はさみをかして", "ハサミヲカシテ", "ハサミを貸して", "Lend me the scissors, please", "Classroom & Study"),
+    ("hashi o kudasai", "はしをください", "ハシヲクダサイ", "箸をください", "Chopsticks, please", "Shopping & Dining"),
+    ("hatachi ni narimashita", "はたちになりました", "ハタチニナリマシタ", "二十歳になりました", "I turned twenty years old", "Family & Children"),
+    ("hayaku naotte ne", "は早くなおってね", "ハヤクナオッテネ", "早く治ってね", "Get well soon!", "Health & Emergency"),
+    ("hayaku okite", "はやくおきて", "ハヤクオキテ", "早く起きて", "Wake up early!", "Daily Conversation"),
+    ("heya o katazukete", "へやをかたづけて", "ヘヤヲカタヅケテ", "部屋を片付けて", "Tidy up your room", "Daily Conversation"),
+    ("heya no kagi o kudasai", "へやのかぎをください", "ヘヤノカギヲクダサイ", "部屋の鍵をください", "The room key, please", "Travel & Hotel"),
+    ("hikouki ni norou", "ひこうきにのろう", "ヒコウキニノロウ", "飛行機に乗ろう", "Let's board the plane", "Travel & Directions"),
+    ("hisa-shiburi desu ne", "ひさしぶりですね", "ヒサシブリデスネ", "久しぶりですね", "Long time no see!", "Greetings & Farewells"),
+    ("hitori de ikemasu ka", "ひとりでいけますか", "ヒトリデイケマスカ", "一人で行けますか", "Can you go on your own?", "Travel & Directions"),
+    ("hitorigurashi desu", "ひとりぐらしです", "ヒトリグラシデス", "一人暮らしです", "I live alone", "Daily Conversation"),
+    ("hitsuyou arimasen", "ひつようありません", "ヒツヨウアリマセン", "必要ありません", "There is no need for that", "Daily Conversation"),
+    ("hoken-shou o misete kudasai", "ほけんしょうをみせてください", "ホケンショウヲミセテクダサイ", "保険証を見せてください", "Please show your health insurance card", "Health & Emergency"),
+    ("hoka ni nani ka", "ほかになにか", "ホカニナニカ", "他に何か？", "Anything else besides?", "Shopping & Dining"),
+    ("hoka no iro wa arimasu ka", "ほかのいろわありますか", "ホカノイロワアリマスカ", "他の色はありますか", "Do you have this in other colors?", "Shopping & Dining"),
+    ("honki desu ka", "ほんきですか", "ホンキデスカ", "本気ですか", "Are you serious?", "Daily Conversation"),
+    ("hontou desu ka", "ほんとうですか", "ホントウデスカ", "本当ですか", "Really? / Is that true?", "Daily Conversation"),
+    ("hontou ni yokatta", "ほんとうによかった", "ホントウニヨカッタ", "本当に良かった", "I'm truly so happy / What a relief", "Empathy & Comfort"),
+    ("honya wa doko desu ka", "ほんやわどこですか", "ホンヤワドコデスカ", "本屋はどこですか", "Where is the bookstore?", "Travel & Directions"),
+    ("hoteru made onegai shimasu", "ほてるまでおねがいします", "ホテルマデオネガイシマス", "ホテルまでお願いします", "To the hotel, please (Taxi)", "Travel & Directions"),
+    ("hotto shita yo", "ほっとしたよ", "ホットシタヨ", "ほっとしたよ", "What a relief!", "Empathy & Comfort"),
+
+    # I
+    ("iie, kekkou desu", "いいえ、けっこうです", "イイエ、ケッコウデス", "いいえ、結構です", "No, thank you / I'm fine", "Daily Conversation"),
+    ("iie, douitashimashite", "いいえ、どういたしまして", "イイエ、ドウイタシマシテ", "いいえ、どういたしまして", "Not at all, you're welcome", "Gratitude & Thanks"),
+    ("ii tenki desu ne", "いいてんきですね", "イイテンキデスネ", "いい天気ですね", "Lovely weather today, isn't it?", "Weather & Daily"),
+    ("ii kangae desu ne", "いいかんがえですね", "イイカンガエデスネ", "いい考えですね", "That's a wonderful idea!", "Daily Conversation"),
+    ("ii nioi ga shimasu", "いいにおいがします", "イイニオイガシマス", "いい匂いがします", "That smells great!", "Shopping & Dining"),
+    ("ikaga desu ka", "いかがですか", "イカガデスカ", "いかがですか", "How about this? / How is it?", "Shopping & Dining"),
+    ("iki o sutte", "いきをすって", "イキヲスッテ", "息を吸って", "Take a deep breath in", "Health & Emergency"),
+    ("ikimashou", "いきましょう", "イキマショウ", "行きましょう", "Let's go!", "Daily Conversation"),
+    ("ikura desu ka", "いくらですか", "イクラデスカ", "幾らですか", "How much does this cost?", "Shopping & Dining"),
+    ("ima nan-ji desu ka", "いまなんじですか", "イマナンジデスカ", "今何時ですか", "What time is it now?", "Daily Conversation"),
+    ("ima no de ii desu ka", "いまのでいいですか", "イマノデイイデスカ", "今のでいいですか", "Was that good just now?", "Classroom & Study"),
+    ("ima made arigatou", "いままでありがとう", "イママデアリガトウ", "今までありがとう", "Thank you for everything up until now", "Gratitude & Thanks"),
+    ("ima sugu ikimasu", "いますぐいきます", "イマスグイキマス", "今すぐ行きます", "I will head over right away", "Daily Conversation"),
+    ("inori o komete", "いのりをこめて", "イノリヲコメテ", "祈りを込めて", "With all my prayers", "Greetings & Celebrations"),
+    ("ippai ikou", "いっぱいおこう", "イッパイイコウ", "一杯行こう", "Let's go have a drink!", "Friends & Social"),
+    ("irasshaimase", "いらっしゃいませ", "イラッシャイマセ", "いらっしゃいませ", "Welcome! (To a store or restaurant)", "Service & Hospitality"),
+    ("irasshai", "いらっしゃい", "イラッシャイ", "いらっしゃい", "Welcome! (Casual)", "Service & Hospitality"),
+    ("iro-iro to arigatou", "いろいろとありがとう", "イロイロトアリガトウ", "色々とありがとう", "Thank you for all your help!", "Gratitude & Thanks"),
+    ("isshoni asobou", "いっしょにあそぼう", "イッショニアソボウ", "一緒に遊ぼう", "Let's play together!", "Friends & Social"),
+    ("isshoni gohan o tabeyou", "いっしょにごはんをたべよう", "イッショニゴハンヲタベヨウ", "一緒にご飯を食べよう", "Let's grab a meal together", "Friends & Social"),
+    ("isshoni shashin o torou", "いっしょにしゃしんをとろう", "イッショニシャシンヲトロウ", "一緒に写真を撮ろう", "Let's take a photo together!", "Friends & Social"),
+    ("isogashii desu ka", "いそがしいですか", "イソガシイデスカ", "忙しいですか", "Are you busy right now?", "Daily Conversation"),
+    ("isoganaide kudasai", "いそがないでください", "イソガナイデクダサイ", "急がないでください", "Please don't hurry / take your time", "Empathy & Comfort"),
+    ("isogou", "いそごう", "イソゴウ", "急ごう", "Let's hurry!", "Daily Conversation"),
+    ("itadakimasu", "いただきます", "イタダキマス", "いただきます", "Let's eat! (Before eating meal)", "Shopping & Dining"),
+    ("itai desu", "いたいです", "イタイデス", "痛いです", "It hurts!", "Health & Emergency"),
+    ("itte kimasu", "いってきます", "イッテキマス", "行ってきます", "I'm heading out! (Leaving home)", "Greetings & Farewells"),
+    ("itterasshai", "いってらっしゃい", "イッテラッシャイ", "行ってらっしゃい", "Have a safe trip / Take care!", "Greetings & Farewells"),
+    ("itsumo osewa ni natte orimasu", "いつもおせわになっております", "イツモオセワニナッテオリマス", "いつもお世話になっております", "Thank you as always for your support", "Work & Business"),
+    ("itsumo arigatou", "いつもありがとう", "イツモアリガトウ", "いつもありがとう", "Thanks as always!", "Gratitude & Thanks")
+]
+
+import sys
+sys.path.append('scripts')
+import expand_phrases
+
+all_p = dict(expand_phrases.existing)
+
+for item in raw_phrases_2:
+    key = item[0].lower()
+    if key not in all_p:
+        all_p[key] = {
+            "alphabet": item[0][0].upper(),
+            "romaji": item[0],
+            "hiragana": item[1],
+            "katakana": item[2],
+            "kanji": item[3],
+            "meaning": item[4],
+            "topic": item[5]
+        }
+
+print(f"Current phrases part 2: {len(all_p)}")
+with open('scripts/phrases_checkpoint.json', 'w', encoding='utf-8') as f:
+    json.dump(list(all_p.values()), f, ensure_ascii=False)
